@@ -1,0 +1,11 @@
+<h2>New Poll</h2>
+<%= form_for @poll do |f| %>
+  <%= f.label:name %>
+  <%= f.text_field :name %>
+  <%= f.submit "Submit" %>
+<% end %>
+<div id="new_poll_message">
+  <% unless @other_poll.nil? %>
+    Sorry, '<%= @other_poll.name %>' is already taken.
+  <% end %>
+</div>

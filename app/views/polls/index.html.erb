@@ -1,0 +1,13 @@
+<header>
+  <h1 class="header">Pollster</h1>
+  <%= link_to "New Poll", new_poll_path %>
+</header>
+<table>
+
+  <tr><th>Poll name</th></tr>
+  <% @polls.each do |poll| %>
+    <tr><td><%= poll.name %></td></tr>
+  <% end %>
+
+</table>
+

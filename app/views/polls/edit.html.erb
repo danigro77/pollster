@@ -1,0 +1,17 @@
+<h2><%= @poll.name %></h2>
+<p>If you want to make a change in the future, remember the url: http://localhost:3000/polls/<%= @poll.admin_url %>/edit </p>
+<p>To share this poll with friends, send them this url: http://localhost:3000/polls/<%= @poll.poll_url %></p>
+
+
+<%= form_for @poll do |f| %>
+
+  <%= f.fields_for :questions do |q_fields| %>
+
+    <%= q_fields.label :question %>
+    <%= q_fields.text_field :question %>
+
+  <% end %>
+
+  <%= f.submit %>
+
+<% end %>

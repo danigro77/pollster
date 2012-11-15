@@ -1,4 +1,19 @@
 Pollster::Application.routes.draw do
+
+  root :to => 'polls#index'
+
+  resources :polls, :except => [:show, :edit]
+
+  # match 'polls/show' =>
+
+  # /polls/pick_your_favorite_fruit_poll => polls#show
+  # /polls/:poll_url
+  match 'polls/:poll_url' => 'polls#show', :as => 'poll', :via => :get
+
+  # /polls/bjTZxDO9Ff4n2a5H4wNOZ2n2V-7imlTfxQ => polls#edit
+  # /polls/:admin_url
+  match 'polls/:admin_url/edit' => 'polls#edit', :as => 'edit_poll', :via => :get
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
